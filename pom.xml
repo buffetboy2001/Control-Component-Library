@@ -2,39 +2,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>org.mitre.caasd</groupId>
 	<artifactId>jlcl</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<parent>
-	   <groupId>org.mitre.caasd</groupId>
-	   <artifactId>caasd-project</artifactId>
-	   <version>0.2.10</version>
-	</parent>
 
-	<name>Java Linear Control Library</name>
-	<url></url>
-
-	<organization>
-		<name>The MITRE Corporation</name>
-		<url>http://www.mitre.org</url>
-	</organization>
+	<name>Control Component Library</name>
+	<url>https://github.com/buffetboy2001/Control-Component-Library</url>
 
 	<properties>
-		<project.name>Java Linear Control Library</project.name>
-		<project.contact.1>Stuart Bowman(Project Lead)</project.contact.1>
-		<project.contact.2></project.contact.2>
+		<project.name>Control Component Library</project.name>
 		<project.copyright>copyright=(c) 2013 The MITRE Corporation.</project.copyright>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<!-- default ams properties -->
-		<project.group.id>org.mitre.caasd.jlcl</project.group.id>
-		<project.organization.department>CAASD-F081</project.organization.department>
+		<!-- default properties -->
+		<project.group.id>org.mitre.caasd</project.group.id>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.copyright>(c) 2013 The MITRE Corporation. ALL RIGHTS RESERVED</project.copyright>
-<!-- 	<native.lib.path.rel>lib${file.separator}${sun.arch.data.model}bit</native.lib.path.rel>
-		<native.lib.path.abs>${basedir}${file.separator}${native.lib.path.rel}</native.lib.path.abs>
-		<native.lib.arg.string>-Djava.library.path="${native.lib.path.abs}"</native.lib.arg.string> -->
 		<java.compile.compliance.level>1.6</java.compile.compliance.level>
 
 		<!-- maven plugin versions -->
@@ -81,127 +65,10 @@
 	<dependencyManagement>
 	</dependencyManagement>
 
-	<!-- define which repos to use to find our dependency artifacts -->
-	<repositories>
-		<!-- local external releases and snapshots -->
-		<repository>
-			<name>Local External Artifacts - releases</name>
-			<id>external-releases</id>
-			<url>http://dali.mitre.org/nexus/content/repositories/external-releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<name>Local External Artifacts - snapshots</name>
-			<id>external-snapshots</id>
-			<url>http://dali.mitre.org/nexus/content/repositories/external-snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-
-		<!-- MITRE releases and snapshots -->
-		<repository>
-			<name>MITRE CAASD - releases</name>
-			<id>mitre-caasd-releases</id>
-			<url>http://dali.mitre.org/nexus/content/repositories/mitre-caasd-releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<name>MITRE CAASD - snapshots</name>
-			<id>mitre-caasd-snapshots</id>
-			<url>http://dali.mitre.org/nexus/content/repositories/mitre-caasd-snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-
-		<!-- Proxied public repos -->
-		<!-- [maven central is defined in super POM and mirrored to our CAASD central 
-			proxy in settings.xml so we don't need to re-declare it here] -->
-		<repository>
-			<name>CAASD Proxy of Java.net at http://download.java.net/maven/2</name>
-			<id>java.net-m2-releases</id>
-			<url>http://dali.mitre.org/nexus/content/repositories/java.net-m2-releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<name>CAASD Proxy of Codehaus releases at http://repository.codehaus.org/</name>
-			<id>codehaus</id>
-			<url>http://dali.mitre.org/nexus/content/repositories/codehaus</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<name>Atlassian/</name>
-			<id>atlassian</id>
-			<url>http://dali.mitre.org/nexus/content/repositories/atlassian/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<name>Apache public releases/</name>
-			<id>adlassian</id>
-			<url>http://dali.mitre.org/nexus/content/repositories/apache-public-releases/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
-	<distributionManagement>
-        <repository>
-            <name>MITRE CAASD - releases</name>
-            <id>mitre-caasd-releases</id><!-- this is the id that must match the repository
-                id in your settings.xml to correctly pull crendentials -->
-            <url>http://dali.mitre.org/nexus/content/repositories/mitre-caasd-releases</url>
-        </repository>
-        <snapshotRepository>
-            <name>MITRE CAASD - snapshots</name>
-            <id>mitre-caasd-snapshots</id>
-            <url>http://dali.mitre.org/nexus/content/repositories/mitre-caasd-snapshots</url>
-        </snapshotRepository>
-	</distributionManagement>
-
-	<!-- configure our maven build -->
+	<!-- configure maven build -->
 	<build>
 
 		<plugins>
-
-			<!-- super POM defines some default plugins. we add additional plugins 
-				and edit any default configurations here -->
 
 			<!-- handles copying project resources to output directory [/src/main/resources->/target/classes 
 				and /src/test/resources->/target/test-classes] -->
@@ -279,46 +146,6 @@
 				</configuration>
 			</plugin>
 
-			<!-- Since the Release Plugin performs a number of operations that change 
-				the project, it may be wise to do a dry run before a big release or on a 
-				new project. To do this, commit all of your files as if you were about to 
-				run a full release and run:mvn release:prepare -DdryRun=true. This will ask 
-				all the same questions, run the same tests, and output a copy of how the 
-				POMs will look after transformation. You can check the output and review 
-				the POMs, then run: mvn release:clean. This will remove all of the files 
-				created above, and the project will be ready to execute the proper release. -->
-
-			<!-- mvn release:prepare does the following: 1. Checks that your local 
-				source code does not have any modifications 2. Writes a release.properties 
-				file with details of what it is doing 3. Modifies the pom.xml to the release 
-				versions 4. Does a build as far as "package" in order to assure itself that 
-				it's changes have not broken the build 5. Commits the modified pom.xml files 
-				to SCM 6. Tags the trunk 7. Modifies the pom.xml to the next snapshot version 
-				8. Commits the modified pom.xml files to SCM THEN mvn release:perform does 
-				the following 1. Checks out the tagged release into target/checkout 2. Forks 
-				a "mvn deploy site-deploy" 3. Removes the release.properties file -->
-			<!-- 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>${release-plugin-version}</version>
-				<configuration>
-					<autoVersionSubmodules>false</autoVersionSubmodules> < user will be prompted for sub-module versions >
-				</configuration>
-			</plugin>  -->
-
-          <!-- produce dependency graphics (.png by default) of the dependency heirarchy -->
-          <!-- 
-          <plugin>
-            <groupId>ch.elca.el4j.maven.plugins</groupId>
-            <artifactId>maven-depgraph-plugin</artifactId>
-            <version>${el4jgraph-plugin-version}</version>
-            <configuration>
-                <outDir>target/depgraph</outDir>
-            </configuration>
-          </plugin>  
-          -->         
-          
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
@@ -345,19 +172,6 @@
 				<version>${javadoc-plugin-version}</version>
 				<configuration>
 					<outputDirectory>${reports.javadocs.outputdir}</outputDirectory>
-					<!--<jarOutputDirectory>${reports.javadocs.outputdir}</jarOutputDirectory> -->
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<!-- jxr -->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jxr-plugin</artifactId>
-				<version>${jxr-plugin-version}</version>
-				<configuration>
-
-					<bottom>${project.copyright}</bottom>
-					<!--<javadocDir>${reports.javadocs.outputdir}</javadocDir> -->
 				</configuration>
 			</plugin>
 
@@ -369,40 +183,9 @@
 				<configuration>
 					<targetJdk>${java.compile.compliance.level}</targetJdk>
 					<linkXRef>true</linkXRef>
-					<!-- <outputDirectory>${reports.pmd.outputdir}</outputDirectory> -->
-
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>${project-info-reports-plugin-version}</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>cim</report>
-							<!--// these bundled dependency reports have a known bug that causes 
-								failures. exclude them from reporting suite. We will run separate dependency 
-								reports with other plugins <report>dependencies</report> <report>dependency-convergence</report> -->
-							<report>dependency-management</report>
-							<report>distribution-management</report>
-							<report>help</report>
-							<report>index</report>
-							<report>issue-tracking</report>
-							<report>license</report>
-							<report>mailing-list</report>
-							<report>modules</report>
-							<report>plugin-management</report>
-							<report>plugins</report>
-							<report>project-team</report>
-							<report>scm</report>
-							<report>summary</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-			
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
