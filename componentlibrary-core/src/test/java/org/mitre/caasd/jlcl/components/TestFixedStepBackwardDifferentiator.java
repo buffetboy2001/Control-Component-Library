@@ -13,7 +13,7 @@ import org.junit.Test;
 public class TestFixedStepBackwardDifferentiator {
 
     /*
-     * The FixedsStepForwardDifferentiator will have no error when
+     * The FixedsStepBackwardDifferentiator will have no error when
      * differentiating a linear function. Use this to create expected responses
      * and tests.
      */
