@@ -1,0 +1,10 @@
+language: java
+jdk:
+ - oraclejdk7
+ - openjdk7
+
+ install
+ mvn -f componentlibrary-parentpom/pom.xml install -DskipTests=true
+ 
+ script
+ mvn -f componentlibrary-parentpom/pom.xml test 
