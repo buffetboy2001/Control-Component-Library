@@ -86,113 +86,111 @@
 	<dependencyManagement>
 	</dependencyManagement>
 
-	<!-- configure maven build -->
 	<build>
-
 		<plugins>
-
-			<plugin>
-			  <groupId>org.sonatype.plugins</groupId>
-			  <artifactId>nexus-staging-maven-plugin</artifactId>
-			  <version>1.6.3</version>
-			  <extensions>true</extensions>
-			  <configuration>
-			     <serverId>ossrh</serverId>
-			     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-			     <autoReleaseAfterClose>true</autoReleaseAfterClose>
-			  </configuration>
-			</plugin>
-
-			<!-- handles copying project resources to output directory [/src/main/resources->/target/classes 
-				and /src/test/resources->/target/test-classes] -->
- 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>${resources-plugin.version}</version>
-			</plugin>
-
-			<!-- handles compiling the source. here we specify java compiler compliance -->
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${compiler-plugin.version}</version>
-				<configuration>
-					<source>${java.compile.compliance.level}</source>
-					<target>${java.compile.compliance.level}</target>
-					<verbose>true</verbose>
-				</configuration>
-			</plugin>
-
-			<!-- create and attach a source jar to our deployment package -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>${source-plugin-version}</version>
+				<version>2.2.1</version>
 				<executions>
 					<execution>
-						<phase>verify</phase>
-						<id>attach-sources</id>
+						<id>source-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>source-test-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>jar-test-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>javadoc-jar</id>
+						<phase>package</phase>
 						<goals>
 							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
+		</plugins>
 
-			<!-- configure our archiver (jar) configuration (e.g., define MANIFEST entries) -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>${jar-plugin.version}</version>
-				<configuration>
-					<archive>
-						<manifest>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-							<addClasspath>true</addClasspath>
-							<classpathLayoutType>custom</classpathLayoutType>
-							<customClasspathLayout>$${artifact.artifactId}-$${artifact.version}.$${artifact.extension}</customClasspathLayout>
-						</manifest>
-						<manifestSection>
-							<name>Contacts</name>
-							<manifestEntries>
-								<Contact1>${project.contact.1}</Contact1>
-								<Contact2>${project.contact.2}</Contact2>
-							</manifestEntries>
-						</manifestSection>
-						<manifestSection>
-							<name>Build-Details</name>
-							<manifestEntries>
-								<Built-By>${user.name}</Built-By>
-								<Build-Time>${maven.build.timestamp}</Build-Time>
-								<Build-Machine>${env.COMPUTERNAME}</Build-Machine>
-								<JDK-Version>${java.version}</JDK-Version>
-								<Compiler-Compliance>${java.compile.compliance.level}</Compiler-Compliance>
-								<Java-Runtime>${java.runtime.name}-${java.runtime.version}</Java-Runtime>
-							</manifestEntries>
-						</manifestSection>
-						<manifestSection>
-							<name>Legal</name>
-							<manifestEntries>
-								<Copyright>${project.copyright}</Copyright>
-							</manifestEntries>
-						</manifestSection>
-					</archive>
-				</configuration>
-			</plugin>
-
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-checkstyle-plugin</artifactId>
-            <version>2.10</version>
-            <configuration>
-              <configLocation>${file.separator}.settings${file.separator}custom_checkstyle_config</configLocation>
-              <outputDirectory>${reports.checkstyle.outputdir}</outputDirectory>
-              <outputFile>${reports.checkstyle.outputdir}${file.separator}checkstyle-result.xml</outputFile>
-            </configuration>
-          </plugin>
-                
-
-  		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>sign-artifacts</id>
+			<activation>
+				<property>
+					<name>performSign</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<!-- configure reporting plugins and configurations -->
 	<reporting>
