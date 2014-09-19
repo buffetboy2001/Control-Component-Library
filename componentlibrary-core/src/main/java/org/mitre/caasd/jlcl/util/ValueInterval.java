@@ -37,7 +37,7 @@ public abstract class ValueInterval<NUMERICTYPE extends Number> extends Paramete
      * 
      * @param value1
      * @param value2
-     * @return
+     * @return The return value.
      */
     public int compare(NUMERICTYPE value1, NUMERICTYPE value2) {
         if (this.performCalculationsAsDoublePrimitive) {
