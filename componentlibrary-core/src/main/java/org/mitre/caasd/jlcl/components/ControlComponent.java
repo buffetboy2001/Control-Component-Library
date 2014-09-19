@@ -12,7 +12,9 @@ import org.mitre.caasd.jlcl.interfaces.ILinearControlComponent;
  * 
  * @author SBOWMAN
  * @param <NUMERICTYPE>
+ *            The numeric type of the component.
  * @param <CONTROL_EVALUATION_ARGS>
+ *            The evaluation argument object of the component.
  * 
  */
 public abstract class ControlComponent<NUMERICTYPE extends Number, CONTROL_EVALUATION_ARGS extends IControlComponentsArguments<NUMERICTYPE>> extends

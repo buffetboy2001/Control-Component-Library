@@ -10,16 +10,19 @@ package org.mitre.caasd.jlcl.components;
  * 
  * @author SBOWMAN
  * @param <NUMERICTYPE>
+ *            The data type to be used for input & output.
  */
 public class TrapezoidalIntegration<NUMERICTYPE extends Number> extends FixedStepIntegrator<NUMERICTYPE, TrapezoidalIntegrationArguments<NUMERICTYPE>> {
 
     /**
      * Constructor.
      * 
-     * @param clazz The numeric class, must extend from {@link Number}.
-     *            The numeric class used for input & output.
+     * @param clazz
+     *            The numeric class, must extend from {@link Number}. The
+     *            numeric class used for input & output.
      * @param fixedStepArgs
-     *            The fixed step argument used for all evaluations of integrate().
+     *            The fixed step argument used for all evaluations of
+     *            integrate().
      */
     public TrapezoidalIntegration(final Class<NUMERICTYPE> clazz, final FixedStepIntegrationArguments<NUMERICTYPE> fixedStepArgs) {
         super(clazz, fixedStepArgs);

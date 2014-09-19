@@ -12,6 +12,7 @@ import org.mitre.caasd.jlcl.components.ParameterizedExtendsNumber;
  * @author SBOWMAN
  * 
  * @param <NUMERICTYPE>
+ *            The data type to be used by operations of this class.
  */
 public abstract class ValueInterval<NUMERICTYPE extends Number> extends ParameterizedExtendsNumber<NUMERICTYPE> {
 
