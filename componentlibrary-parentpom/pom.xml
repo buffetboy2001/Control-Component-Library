@@ -15,7 +15,18 @@
 
 	<name>Control Component Library</name>
 	<url>https://github.com/buffetboy2001/Control-Component-Library</url>
-	
+	<scm>
+		<url>git@github.com:buffetboy2001/Control-Component-Library.git</url>
+		<connection>scm:git:git@github.com:buffetboy2001/Control-Component-Library.git</connection>
+		<developerConnection>scm:git:git@github.com:buffetboy2001/Control-Component-Library.git</developerConnection>
+	</scm>
+	<licenses>
+		<license>
+			<name>Apache 2.0 License</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+		</license>
+	</licenses>
+		
 	<modules>
 		<module>../componentlibrary-core</module>
 		<module>../componentlibrary-examples</module>
