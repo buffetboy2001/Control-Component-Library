@@ -14,7 +14,7 @@ public final class NoIntegration<NUMERICTYPE extends Number> extends Parameteriz
     /**
      * Constructor.
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      */
     public NoIntegration(Class<NUMERICTYPE> clazz) {
         super(clazz);

@@ -31,7 +31,7 @@ public class ProportionalOnlyArguments<NUMERICTYPE extends Number> extends Param
     /**
      * Basic constructor.
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The numeric type used for input & output.
      */
     public ProportionalOnlyArguments(Class<NUMERICTYPE> clazz) {

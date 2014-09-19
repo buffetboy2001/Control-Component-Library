@@ -19,7 +19,7 @@ public class Saturator<NUMERICTYPE extends Number> extends ControlComponent<NUME
     private final ClosedInterval<NUMERICTYPE> interval;
 
     /**
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The class used for input & output.
      * @param minimumValue
      *            The minimum value that the error signal is allowed to be.

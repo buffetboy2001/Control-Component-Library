@@ -54,7 +54,7 @@ public class PID<NUMERICTYPE extends Number, INTEGRATOR extends IIntegrate<NUMER
     /**
      * PID Constructor. Inputs may not be null.
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The class numeric type that will be used for all input & ouput.
      * @param proportionalGain
      *            The proportional gain.

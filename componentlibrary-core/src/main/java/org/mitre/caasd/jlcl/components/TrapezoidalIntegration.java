@@ -16,7 +16,7 @@ public class TrapezoidalIntegration<NUMERICTYPE extends Number> extends FixedSte
     /**
      * Constructor.
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The numeric class used for input & output.
      * @param fixedStepArgs
      *            The fixed step argument used for all evaluations of integrate().

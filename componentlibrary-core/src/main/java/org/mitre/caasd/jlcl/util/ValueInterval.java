@@ -6,7 +6,8 @@ package org.mitre.caasd.jlcl.util;
 import org.mitre.caasd.jlcl.components.ParameterizedExtendsNumber;
 
 /**
- * Enforces a basic numerical interval concept. The values stored are guaranteed to be ordered properly.
+ * Enforces a basic numerical interval concept. The values stored are guaranteed
+ * to be ordered properly.
  * 
  * @author SBOWMAN
  * 
@@ -19,6 +20,7 @@ public abstract class ValueInterval<NUMERICTYPE extends Number> extends Paramete
 
     /**
      * @param clazz
+     *            The numeric class, must extend from {@link Number}.
      * @param value1
      *            Any value of the correct numeric type.
      * @param value2
@@ -30,7 +32,8 @@ public abstract class ValueInterval<NUMERICTYPE extends Number> extends Paramete
     }
 
     /**
-     * A standard compare implementation. This uses the correct <code>compare</code> method for the NUMERICTYPE.
+     * A standard compare implementation. This uses the correct
+     * <code>compare</code> method for the NUMERICTYPE.
      * 
      * @param value1
      * @param value2
@@ -55,8 +58,7 @@ public abstract class ValueInterval<NUMERICTYPE extends Number> extends Paramete
         if (compareResult > 0) {
             // v1 > v2
             storeUpperLower(value1, value2);
-        }
-        else {
+        } else {
             // equal, which is the same as
             // v2 > v1
             storeUpperLower(value2, value1);
@@ -86,7 +88,8 @@ public abstract class ValueInterval<NUMERICTYPE extends Number> extends Paramete
      * 
      * @param value
      *            Any value of interest and of the correct NUMERICTYPE.
-     * @return <code>true</code> if on the interval, <code>false</code> otherwise.
+     * @return <code>true</code> if on the interval, <code>false</code>
+     *         otherwise.
      */
     public abstract boolean isOnTheInterval(NUMERICTYPE value);
 }

@@ -38,7 +38,7 @@ public abstract class ParameterizedExtendsNumber<NUMERICTYPE extends Number> {
     /**
      * The abstract class must do some work to determine at runtime construction which variable type has been requested.
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      */
     public ParameterizedExtendsNumber(Class<NUMERICTYPE> clazz) {
         this.clazz = clazz;
@@ -144,7 +144,7 @@ public abstract class ParameterizedExtendsNumber<NUMERICTYPE extends Number> {
     /**
      * A static utility method to produce the value of zero when only the clazz is known. This is similar to getZeroAtCorrectType(), but the static attribute makes is available in more situations. Warning, the user must cast the returned value correctly!
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The numeric class type (extends <code>Number</code>) that should be used to produce zero.
      * @return The value zero as a <code>Number</code>. The caller must cast this as appropriate (usually with a generic type parameter).
      * @see #getZeroAsCorrectType()

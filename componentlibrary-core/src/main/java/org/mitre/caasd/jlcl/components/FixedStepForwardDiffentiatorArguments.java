@@ -17,7 +17,7 @@ public class FixedStepForwardDiffentiatorArguments<NUMERICTYPE extends Number> e
     private NUMERICTYPE nextFunctionValue = null;
 
     /**
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The class that defines the numeric type to be used.
      * @param fixedStepSize
      *            The step size that will be used for all differentation operations.

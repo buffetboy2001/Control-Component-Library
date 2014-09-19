@@ -28,7 +28,7 @@ public final class ControlComponentFactory { // Is this really a factory? Check 
      * <p>
      * Use of this method is discouraged because an unchecked cast will be required by the caller in order to use the returned object.
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The class of the data type to be used for the control component.
      * @param kp
      *            The proportional gain value to be used.

@@ -29,7 +29,7 @@ public abstract class FixedStepIntegrator<NUMERICTYPE extends Number, ARGTYPE ex
     protected IFixedStepIntegratorArguments<NUMERICTYPE> fixedStepArgs = null;
 
     /**
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The numeric class that will be used for all input & output data types.
      * @param fixedStepArgs
      *            The fixed step argument object to be used for all integration operations. Must implement <code>IFixedStepIntegratorArguments</code>.

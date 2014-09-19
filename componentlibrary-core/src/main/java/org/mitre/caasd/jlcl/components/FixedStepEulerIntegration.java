@@ -13,7 +13,7 @@ public class FixedStepEulerIntegration<NUMERICTYPE extends Number> extends Fixed
     /**
      * Constructor.
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      *            The class used for input & output.
      * @param fixedStepSizeArgs
      *            The integration argument object that will be used for all integrate() evaluations.
