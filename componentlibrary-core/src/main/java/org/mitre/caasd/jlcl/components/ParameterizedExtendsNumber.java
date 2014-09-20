@@ -7,10 +7,11 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * All classes which are parameterized on a type that extends <code>Number</code> and that
- * contain outward facing methods that return <code>NUMERICTYPE</code> should subclass from
- * this abstract class. This class takes on the load of type characterization which
- * must be performed upon construction of all objects.
+ * All classes which are parameterized on a type that extends
+ * <code>Number</code> and that contain outward facing methods that return
+ * <code>NUMERICTYPE</code> should subclass from this abstract class. This class
+ * takes on the load of type characterization which must be performed upon
+ * construction of all objects.
  * 
  * @author SBOWMAN
  * 
@@ -20,13 +21,16 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class ParameterizedExtendsNumber<NUMERICTYPE extends Number> {
 
     /**
-     * Use this constructor class in subclasses to massage the output of a mathematical operation (+,-,*,/) into the correct
-     * type for return at NUMERICTYPE.
+     * Use this constructor class in subclasses to massage the output of a
+     * mathematical operation (+,-,*,/) into the correct type for return at
+     * NUMERICTYPE.
      */
     protected Constructor<NUMERICTYPE> constructorOfNumericType = null;
 
     /**
-     * Use this boolean in subclasses to switch between the primitive type to use for mathematical calculations. Only <code>double</code> and <code>long</code> are to be used.
+     * Use this boolean in subclasses to switch between the primitive type to
+     * use for mathematical calculations. Only <code>double</code> and
+     * <code>long</code> are to be used.
      */
     protected boolean performCalculationsAsDoublePrimitive = true;
 
@@ -36,9 +40,11 @@ public abstract class ParameterizedExtendsNumber<NUMERICTYPE extends Number> {
     protected Class<NUMERICTYPE> clazz;
 
     /**
-     * The abstract class must do some work to determine at runtime construction which variable type has been requested.
+     * The abstract class must do some work to determine at runtime construction
+     * which variable type has been requested.
      * 
-     * @param clazz The numeric class, must extend from {@link Number}.
+     * @param clazz
+     *            The numeric class, must extend from {@link Number}.
      */
     public ParameterizedExtendsNumber(Class<NUMERICTYPE> clazz) {
         this.clazz = clazz;
@@ -65,10 +71,11 @@ public abstract class ParameterizedExtendsNumber<NUMERICTYPE extends Number> {
     }
 
     /**
-     * If the result of a mathematical operation in a subclass must conform to <code>NUMERICTYPE</code>,
-     * call this method.
+     * If the result of a mathematical operation in a subclass must conform to
+     * <code>NUMERICTYPE</code>, call this method.
      * 
      * @param in
+     *            The primitive value to convert.
      * @return the value of <code>in</code> typed as <code>NUMERICTYPE</code>
      */
     protected final NUMERICTYPE convertToOutputType(final double in) {
@@ -92,10 +99,11 @@ public abstract class ParameterizedExtendsNumber<NUMERICTYPE extends Number> {
     }
 
     /**
-     * If the result of a mathematical operation in a subclass must conform to <code>NUMERICTYPE</code>,
-     * call this method.
+     * If the result of a mathematical operation in a subclass must conform to
+     * <code>NUMERICTYPE</code>, call this method.
      * 
      * @param in
+     *            The string value to convert.
      * @return the value of <code>in</code> typed as <code>NUMERICTYPE</code>
      */
     protected final NUMERICTYPE convertToOutputType(final String in) {
@@ -119,10 +127,11 @@ public abstract class ParameterizedExtendsNumber<NUMERICTYPE extends Number> {
     }
 
     /**
-     * If the result of a mathematical operation in a subclass must conform to <code>NUMERICTYPE</code>,
-     * call this method.
+     * If the result of a mathematical operation in a subclass must conform to
+     * <code>NUMERICTYPE</code>, call this method.
      * 
      * @param in
+     *            The value to be converted.
      * @return the value of <code>in</code> typed as <code>NUMERICTYPE</code>
      */
     protected final NUMERICTYPE convertToOutputType(final long in) {
@@ -142,11 +151,17 @@ public abstract class ParameterizedExtendsNumber<NUMERICTYPE extends Number> {
     }
 
     /**
-     * A static utility method to produce the value of zero when only the clazz is known. This is similar to getZeroAtCorrectType(), but the static attribute makes is available in more situations. Warning, the user must cast the returned value correctly!
+     * A static utility method to produce the value of zero when only the clazz
+     * is known. This is similar to getZeroAtCorrectType(), but the static
+     * attribute makes is available in more situations. Warning, the user must
+     * cast the returned value correctly!
      * 
-     * @param clazz The numeric class, must extend from {@link Number}.
-     *            The numeric class type (extends <code>Number</code>) that should be used to produce zero.
-     * @return The value zero as a <code>Number</code>. The caller must cast this as appropriate (usually with a generic type parameter).
+     * @param clazz
+     *            The numeric class, must extend from {@link Number}. The
+     *            numeric class type (extends <code>Number</code>) that should
+     *            be used to produce zero.
+     * @return The value zero as a <code>Number</code>. The caller must cast
+     *         this as appropriate (usually with a generic type parameter).
      * @see #getZeroAsCorrectType()
      */
     public static final Number getZeroForClazz(Class<? extends Number> clazz) {

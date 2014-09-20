@@ -1,7 +1,8 @@
 package org.mitre.caasd.jlcl.interfaces;
 
 /**
- * The interface for PID implementations. A PID control component is both a linear control component and a component that maintains state.
+ * The interface for PID implementations. A PID control component is both a
+ * linear control component and a component that maintains state.
  * 
  * @author SBOWMAN
  * @see org.mitre.caasd.jlcl.components.PID
@@ -9,49 +10,57 @@ package org.mitre.caasd.jlcl.interfaces;
  * 
  * @param <NUMERICTYPE>
  *            The data type that will be input and returned by this class.
- * @param <PID_ARGS_TYPE>
- *            The argument object for the PID to evaluate.
+ * @param <INTEGRATOR>
+ *            The integrator object.
  * @param <INTEGRATOR_ARGS_TYPE>
  *            The integrator argument object.
+ * @param <DIFFERENTIATE>
+ *            The differentiator object.
  * @param <DIFFERENTIATOR_ARGS_TYPE>
  *            The differentiator argument object.
  */
-public interface IPID<NUMERICTYPE extends Number,                      
-                      INTEGRATOR extends IIntegrate<NUMERICTYPE, INTEGRATOR_ARGS_TYPE>, 
-                      INTEGRATOR_ARGS_TYPE extends IIntegrationArguments<NUMERICTYPE>,
-                      DIFFERENTIATE extends IDifferentiate<NUMERICTYPE, DIFFERENTIATOR_ARGS_TYPE>,
-                      DIFFERENTIATOR_ARGS_TYPE extends IDifferentiateArguments<NUMERICTYPE>> extends ILinearControlComponent<NUMERICTYPE, IPidEvaluationArguments<NUMERICTYPE, INTEGRATOR_ARGS_TYPE, DIFFERENTIATOR_ARGS_TYPE>>, IMaintainsState {
+public interface IPID<NUMERICTYPE extends Number, INTEGRATOR extends IIntegrate<NUMERICTYPE, INTEGRATOR_ARGS_TYPE>, INTEGRATOR_ARGS_TYPE extends IIntegrationArguments<NUMERICTYPE>, DIFFERENTIATE extends IDifferentiate<NUMERICTYPE, DIFFERENTIATOR_ARGS_TYPE>, DIFFERENTIATOR_ARGS_TYPE extends IDifferentiateArguments<NUMERICTYPE>>
+        extends ILinearControlComponent<NUMERICTYPE, IPidEvaluationArguments<NUMERICTYPE, INTEGRATOR_ARGS_TYPE, DIFFERENTIATOR_ARGS_TYPE>>, IMaintainsState {
 
     /**
      * @param kp
-     *            Update the proportional gain value using the same <code>NUMERICTYPE</code> that was used to build the <code>IPID</code> component.
+     *            Update the proportional gain value using the same
+     *            <code>NUMERICTYPE</code> that was used to build the
+     *            <code>IPID</code> component.
      */
     void updateProportionalGain(NUMERICTYPE kp);
 
     /**
-     * @param kp
-     *            Update the integral gain value using the same <code>NUMERICTYPE</code> that was used to build the <code>IPID</code> component.
+     * @param ki
+     *            Update the integral gain value using the same
+     *            <code>NUMERICTYPE</code> that was used to build the
+     *            <code>IPID</code> component.
      */
     void updateIntegralGain(NUMERICTYPE ki);
 
     /**
-     * @param kp
-     *            Update the derivative gain value using the same <code>NUMERICTYPE</code> that was used to build the <code>IPID</code> component.
+     * @param kd
+     *            Update the derivative gain value using the same
+     *            <code>NUMERICTYPE</code> that was used to build the
+     *            <code>IPID</code> component.
      */
     void updateDerivativeGain(NUMERICTYPE kd);
 
     /**
-     * @return Provides the proportional gain value (of type <code>NUMERICTYPE</code>) currently in use.
+     * @return Provides the proportional gain value (of type
+     *         <code>NUMERICTYPE</code>) currently in use.
      */
     NUMERICTYPE getProportionalGain();
 
     /**
-     * @return Provides the integral gain value (of type <code>NUMERICTYPE</code>) currently in use.
+     * @return Provides the integral gain value (of type
+     *         <code>NUMERICTYPE</code>) currently in use.
      */
     NUMERICTYPE getIntegralGain();
 
     /**
-     * @return Provides the derivative gain value (of type <code>NUMERICTYPE</code>) currently in use.
+     * @return Provides the derivative gain value (of type
+     *         <code>NUMERICTYPE</code>) currently in use.
      */
     NUMERICTYPE getDerivativeGain();
 

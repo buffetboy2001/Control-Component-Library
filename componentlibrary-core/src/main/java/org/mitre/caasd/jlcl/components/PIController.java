@@ -9,7 +9,7 @@ import org.mitre.caasd.jlcl.interfaces.IIntegrationArguments;
 /**
  * A pre-built Proportional-Integral control component that subclasses
  * {@link PID}. The derivative term is guaranteed to remain zero. The
- * {@link #evaluate(org.mitre.caasd.jlcl.interfaces.IPidEvaluationArguments)}
+ * {@link #evaluate(org.mitre.caasd.jlcl.interfaces.IControlComponentsArguments)}
  * method must be called with a {@link ProportionalIntegralArguments} object.
  * 
  * @param <NUMERICTYPE>

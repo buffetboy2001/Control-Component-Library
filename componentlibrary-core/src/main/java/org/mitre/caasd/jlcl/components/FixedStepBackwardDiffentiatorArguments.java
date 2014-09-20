@@ -18,8 +18,9 @@ public class FixedStepBackwardDiffentiatorArguments<NUMERICTYPE extends Number> 
     private NUMERICTYPE previousFunctionValue = null;
 
     /**
-     * @param clazz The numeric class, must extend from {@link Number}.
-     *            The class that defines the numeric type to be used.
+     * @param clazz
+     *            The numeric class, must extend from {@link Number}. The class
+     *            that defines the numeric type to be used.
      * @param fixedStepSize
      *            The step size that will be used for all differentation
      *            operations.
@@ -33,13 +34,14 @@ public class FixedStepBackwardDiffentiatorArguments<NUMERICTYPE extends Number> 
      * {@link FixedStepForwardDifferentiator}.
      * 
      * @param functionValue
+     *            The previous function value.
      */
     public void updatePreviousFunctionValue(NUMERICTYPE functionValue) {
         this.previousFunctionValue = functionValue;
     }
 
     /**
-     * @return the nextFunctionValue
+     * @return the nextFunctionValue The next function value.
      */
     public NUMERICTYPE getPreviousFunctionValue() {
         return previousFunctionValue;

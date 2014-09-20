@@ -8,10 +8,13 @@ import org.mitre.caasd.jlcl.interfaces.IPID;
 import org.mitre.caasd.jlcl.interfaces.IPidEvaluationArguments;
 
 /**
- * This class represents a basic Proportional-Integrator-Derivative control component. The PID control law defines
- * a summation operation between three error signal operations: <li>proportional operation</li> <li>integration operation</li> <li>derivative operation</li>
+ * This class represents a basic Proportional-Integrator-Derivative control
+ * component. The PID control law defines a summation operation between three
+ * error signal operations: proportional operation, integration operation,
+ * derivative operation.
  * <p>
- * The output of each operation is summed to provide the output of the control law.
+ * The output of each operation is summed to provide the output of the control
+ * law.
  * 
  * 
  * @author SBOWMAN
@@ -28,7 +31,9 @@ import org.mitre.caasd.jlcl.interfaces.IPidEvaluationArguments;
  *            The Differentiator argument object type.
  * @see org.mitre.caasd.jlcl.factories.ControlComponentFactory
  */
-public class PID<NUMERICTYPE extends Number, INTEGRATOR extends IIntegrate<NUMERICTYPE, INTEGRATOR_ARGS_TYPE>, INTEGRATOR_ARGS_TYPE extends IIntegrationArguments<NUMERICTYPE>, DIFFERENTIATOR extends IDifferentiate<NUMERICTYPE, DIFFERENTIATOR_ARGS_TYPE>, DIFFERENTIATOR_ARGS_TYPE extends IDifferentiateArguments<NUMERICTYPE>> extends ControlComponent<NUMERICTYPE, IPidEvaluationArguments<NUMERICTYPE, INTEGRATOR_ARGS_TYPE, DIFFERENTIATOR_ARGS_TYPE>> implements IPID<NUMERICTYPE, INTEGRATOR, INTEGRATOR_ARGS_TYPE, DIFFERENTIATOR, DIFFERENTIATOR_ARGS_TYPE> {
+public class PID<NUMERICTYPE extends Number, INTEGRATOR extends IIntegrate<NUMERICTYPE, INTEGRATOR_ARGS_TYPE>, INTEGRATOR_ARGS_TYPE extends IIntegrationArguments<NUMERICTYPE>, DIFFERENTIATOR extends IDifferentiate<NUMERICTYPE, DIFFERENTIATOR_ARGS_TYPE>, DIFFERENTIATOR_ARGS_TYPE extends IDifferentiateArguments<NUMERICTYPE>>
+        extends ControlComponent<NUMERICTYPE, IPidEvaluationArguments<NUMERICTYPE, INTEGRATOR_ARGS_TYPE, DIFFERENTIATOR_ARGS_TYPE>> implements
+        IPID<NUMERICTYPE, INTEGRATOR, INTEGRATOR_ARGS_TYPE, DIFFERENTIATOR, DIFFERENTIATOR_ARGS_TYPE> {
 
     /**
      * The proportional gain value.
@@ -54,8 +59,8 @@ public class PID<NUMERICTYPE extends Number, INTEGRATOR extends IIntegrate<NUMER
     /**
      * PID Constructor. Inputs may not be null.
      * 
-     * @param clazz The numeric class, must extend from {@link Number}.
-     *            The class numeric type that will be used for all input & ouput.
+     * @param clazz
+     *            The numeric class, must extend from {@link Number}.
      * @param proportionalGain
      *            The proportional gain.
      * @param integratorInstance
@@ -67,12 +72,8 @@ public class PID<NUMERICTYPE extends Number, INTEGRATOR extends IIntegrate<NUMER
      * @param derivativeGain
      *            The derivative gain to be used.
      */
-    public PID(final Class<NUMERICTYPE> clazz,
-            final NUMERICTYPE proportionalGain,
-            final INTEGRATOR integratorInstance,
-            final NUMERICTYPE integratorGain,
-            final DIFFERENTIATOR derivativeInstance,
-            final NUMERICTYPE derivativeGain) {
+    public PID(final Class<NUMERICTYPE> clazz, final NUMERICTYPE proportionalGain, final INTEGRATOR integratorInstance, final NUMERICTYPE integratorGain,
+            final DIFFERENTIATOR derivativeInstance, final NUMERICTYPE derivativeGain) {
         super(clazz);
         this.updateProportionalGain(proportionalGain);
         i = integratorInstance;
@@ -128,7 +129,9 @@ public class PID<NUMERICTYPE extends Number, INTEGRATOR extends IIntegrate<NUMER
         return d;
     }
 
-    // This evaluateAs method is final to prevent extension of the implementation. To need a different implementation is to move away from PID entirely.
+    // This evaluateAs method is final to prevent extension of the
+    // implementation. To need a different implementation is to move away from
+    // PID entirely.
     @Override
     protected final double evaluateAsDoublePrimitive(IPidEvaluationArguments<NUMERICTYPE, INTEGRATOR_ARGS_TYPE, DIFFERENTIATOR_ARGS_TYPE> evaluationArguments) {
         // use double primitive
@@ -140,10 +143,13 @@ public class PID<NUMERICTYPE extends Number, INTEGRATOR extends IIntegrate<NUMER
         return controlOuput;
     }
 
-    // This evaluateAs method is final to prevent extension of the implementation. To need a different implementation is to move away from PID entirely.
+    // This evaluateAs method is final to prevent extension of the
+    // implementation. To need a different implementation is to move away from
+    // PID entirely.
     @Override
     protected final long evaluateAsLongPrimitive(IPidEvaluationArguments<NUMERICTYPE, INTEGRATOR_ARGS_TYPE, DIFFERENTIATOR_ARGS_TYPE> evaluationArguments) {
-        // use long primitive via string conversion (which does not contain any loss of precision)
+        // use long primitive via string conversion (which does not contain any
+        // loss of precision)
         NUMERICTYPE errorSignal = evaluationArguments.getErrorSignalValue();
         long controlOuput = 0l;
         controlOuput += kp.longValue() * errorSignal.longValue();

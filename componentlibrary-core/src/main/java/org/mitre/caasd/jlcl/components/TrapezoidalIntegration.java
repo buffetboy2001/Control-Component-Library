@@ -5,12 +5,12 @@ package org.mitre.caasd.jlcl.components;
 
 /**
  * Perform fixed step trapezoidal integration.
- * <p>
- * See Chapra & Canale, Numerical Methods for Engineers, 2nd Ed., pg 478
+ * 
+ * See Chapra and Canale, Numerical Methods for Engineers, 2nd Ed., pg 478
  * 
  * @author SBOWMAN
  * @param <NUMERICTYPE>
- *            The data type to be used for input & output.
+ *            The data type to be used for input and output.
  */
 public class TrapezoidalIntegration<NUMERICTYPE extends Number> extends FixedStepIntegrator<NUMERICTYPE, TrapezoidalIntegrationArguments<NUMERICTYPE>> {
 
@@ -19,7 +19,7 @@ public class TrapezoidalIntegration<NUMERICTYPE extends Number> extends FixedSte
      * 
      * @param clazz
      *            The numeric class, must extend from {@link Number}. The
-     *            numeric class used for input & output.
+     *            numeric class used for input and output.
      * @param fixedStepArgs
      *            The fixed step argument used for all evaluations of
      *            integrate().

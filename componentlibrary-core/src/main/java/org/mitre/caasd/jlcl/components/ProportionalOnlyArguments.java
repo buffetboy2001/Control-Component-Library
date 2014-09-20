@@ -13,14 +13,17 @@ import org.mitre.caasd.jlcl.interfaces.IPidEvaluationArguments;
  * @param <NUMERICTYPE>
  *            The numeric type used for input and output.
  */
-public class ProportionalOnlyArguments<NUMERICTYPE extends Number> extends ParameterizedExtendsNumber<NUMERICTYPE> implements IPidEvaluationArguments<NUMERICTYPE, NoIntegrationArguments<NUMERICTYPE>, NoDifferentiationArguments<NUMERICTYPE>> {
+public class ProportionalOnlyArguments<NUMERICTYPE extends Number> extends ParameterizedExtendsNumber<NUMERICTYPE> implements
+        IPidEvaluationArguments<NUMERICTYPE, NoIntegrationArguments<NUMERICTYPE>, NoDifferentiationArguments<NUMERICTYPE>> {
 
     /**
-     * A final reference to the only integration argument object that should ever be returned.
+     * A final reference to the only integration argument object that should
+     * ever be returned.
      */
     private final NoIntegrationArguments<NUMERICTYPE> integratorArgs = new NoIntegrationArguments<NUMERICTYPE>(clazz);
     /**
-     * A final reference to the only differentiation argument object that should ever be returned.
+     * A final reference to the only differentiation argument object that should
+     * ever be returned.
      */
     private final NoDifferentiationArguments<NUMERICTYPE> differentiatorArgs = new NoDifferentiationArguments<NUMERICTYPE>(clazz);
     /**
@@ -31,8 +34,8 @@ public class ProportionalOnlyArguments<NUMERICTYPE extends Number> extends Param
     /**
      * Basic constructor.
      * 
-     * @param clazz The numeric class, must extend from {@link Number}.
-     *            The numeric type used for input & output.
+     * @param clazz
+     *            The numeric class, must extend from {@link Number}.
      */
     public ProportionalOnlyArguments(Class<NUMERICTYPE> clazz) {
         super(clazz);

@@ -41,12 +41,14 @@ public abstract class ControlComponent<NUMERICTYPE extends Number, CONTROL_EVALU
 
     /**
      * @param evaluationArguments
+     *            The arguement object.
      * @return The return value.
      */
     protected abstract double evaluateAsDoublePrimitive(final CONTROL_EVALUATION_ARGS evaluationArguments);
 
     /**
      * @param evaluationArguments
+     *            The arguement object.
      * @return The return value.
      */
     protected abstract long evaluateAsLongPrimitive(final CONTROL_EVALUATION_ARGS evaluationArguments);

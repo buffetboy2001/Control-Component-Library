@@ -12,7 +12,11 @@ public class TrapezoidalIntegrationArguments<NUMERICTYPE extends Number> extends
     private NUMERICTYPE prevFval = super.getZeroAsCorrectType();
 
     /**
-     * 
+     * @param clazz
+     *            The class to be used for operations, extends from
+     *            {@link Number}.
+     * @param fixedStepSize
+     *            The step size to be used.
      */
     public TrapezoidalIntegrationArguments(Class<NUMERICTYPE> clazz, NUMERICTYPE fixedStepSize) {
         super(clazz, fixedStepSize);

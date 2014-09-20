@@ -37,7 +37,9 @@ public abstract class ValueInterval<NUMERICTYPE extends Number> extends Paramete
      * <code>compare</code> method for the NUMERICTYPE.
      * 
      * @param value1
+     *            The first value.
      * @param value2
+     *            The second value.
      * @return The return value.
      */
     public int compare(NUMERICTYPE value1, NUMERICTYPE value2) {
