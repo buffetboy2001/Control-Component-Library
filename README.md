@@ -14,11 +14,11 @@ A Java implementation of standard control theory components (PID, Saturator, etc
 
 The compiled artifacts from this library are deployed to Maven Central. Simply include this in your Maven POM.
 
-<dependency>
-  <groupId>org.mitre.caasd</groupId>
-  <artifactId>componentlibrary-core</artifactId>
-  <version>1.0.0</version>
-</dependency>
+	<dependency>
+	  <groupId>org.mitre.caasd</groupId>
+	  <artifactId>componentlibrary-core</artifactId>
+	  <version>1.0.0</version>
+	</dependency>
 
 ## A Quick Tutorial
 _Coming Soon_
