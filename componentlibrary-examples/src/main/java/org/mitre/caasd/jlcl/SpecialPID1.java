@@ -28,11 +28,11 @@ import org.mitre.caasd.jlcl.interfaces.IPidEvaluationArguments;
  * 
  * @author sbowman
  * 
- * @param <NUMERICTYPE>
- * @param <INTEGRATE>
- * @param <INTEGRATOR_ARGS_TYPE>
- * @param <DIFFERENTIATE>
- * @param <DIFFERENTIATOR_ARGS_TYPE>
+ * @param <NUMERICTYPE> The data type to be used for operations by this class.
+ * @param <INTEGRATE> The integrator to be used by this class.
+ * @param <INTEGRATOR_ARGS_TYPE> The integrator arguements to be used by this class.
+ * @param <DIFFERENTIATE> The differentiator to be used by this class.
+ * @param <DIFFERENTIATOR_ARGS_TYPE> The differentiator arguements to be used by this class.
  */
 public class SpecialPID1<NUMERICTYPE extends Number, INTEGRATE extends IIntegrate<NUMERICTYPE, INTEGRATOR_ARGS_TYPE>, INTEGRATOR_ARGS_TYPE extends IIntegrationArguments<NUMERICTYPE>, DIFFERENTIATE extends IDifferentiate<NUMERICTYPE, DIFFERENTIATOR_ARGS_TYPE>, DIFFERENTIATOR_ARGS_TYPE extends IDifferentiateArguments<NUMERICTYPE>> extends ParameterizedExtendsNumber<NUMERICTYPE> implements IPID<NUMERICTYPE, INTEGRATE, INTEGRATOR_ARGS_TYPE, DIFFERENTIATE, DIFFERENTIATOR_ARGS_TYPE> {
 

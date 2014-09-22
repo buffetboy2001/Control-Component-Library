@@ -18,7 +18,7 @@ public final class NoDifferentiation<NUMERICTYPE extends Number> extends Paramet
     /**
      * Constructor.
      * 
-     * @param clazz
+     * @param clazz The numeric class, must extend from {@link Number}.
      */
     public NoDifferentiation(Class<NUMERICTYPE> clazz) {
         super(clazz);

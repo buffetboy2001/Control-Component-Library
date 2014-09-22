@@ -7,16 +7,17 @@ import org.mitre.caasd.jlcl.interfaces.IFixedStepIntegratorArguments;
 import org.mitre.caasd.jlcl.interfaces.IIntegrate;
 
 /**
- * An abstract class that should be subclassed by all fixed-step integration classes. The benefit
- * is that this class provides nearly full implementation. The subclass needs only to implement
- * one method (integrate()).
+ * An abstract class that should be subclassed by all fixed-step integration
+ * classes. The benefit is that this class provides nearly full implementation.
+ * The subclass needs only to implement one method (integrate()).
  * 
  * @author SBOWMAN
  * 
  * @param <NUMERICTYPE>
  *            The data type that will be input and returned by this class.
  */
-public abstract class FixedStepIntegrator<NUMERICTYPE extends Number, ARGTYPE extends IFixedStepIntegratorArguments<NUMERICTYPE>> extends ParameterizedExtendsNumber<NUMERICTYPE> implements IIntegrate<NUMERICTYPE, ARGTYPE> {
+public abstract class FixedStepIntegrator<NUMERICTYPE extends Number, ARGTYPE extends IFixedStepIntegratorArguments<NUMERICTYPE>> extends ParameterizedExtendsNumber<NUMERICTYPE>
+        implements IIntegrate<NUMERICTYPE, ARGTYPE> {
 
     /**
      * The itegration total (cumulative sum).
@@ -30,9 +31,12 @@ public abstract class FixedStepIntegrator<NUMERICTYPE extends Number, ARGTYPE ex
 
     /**
      * @param clazz
-     *            The numeric class that will be used for all input & output data types.
+     *            The numeric class that will be used for all input and output
+     *            data types, must extend from {@link Number}.
      * @param fixedStepArgs
-     *            The fixed step argument object to be used for all integration operations. Must implement <code>IFixedStepIntegratorArguments</code>.
+     *            The fixed step argument object to be used for all integration
+     *            operations. Must implement
+     *            <code>IFixedStepIntegratorArguments</code>.
      * @see IFixedStepIntegratorArguments
      */
     public FixedStepIntegrator(final Class<NUMERICTYPE> clazz, IFixedStepIntegratorArguments<NUMERICTYPE> fixedStepArgs) {

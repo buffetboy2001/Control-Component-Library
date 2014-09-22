@@ -17,6 +17,11 @@ public class FixedStepIntegrationArguments<NUMERICTYPE extends Number> extends F
 
     /**
      * Constructor.
+     * 
+     * @param clazz
+     *            The numeric class, must extend from {@link Number}.
+     * @param fixedStepSize
+     *            The step size to be used for integration arguements.
      */
     public FixedStepIntegrationArguments(Class<NUMERICTYPE> clazz, NUMERICTYPE fixedStepSize) {
         super(clazz, fixedStepSize);

@@ -5,14 +5,16 @@ package org.mitre.caasd.jlcl.components;
 
 import org.mitre.caasd.jlcl.interfaces.ISaturator;
 import org.mitre.caasd.jlcl.util.ClosedInterval;
+import org.mitre.caasd.jlcl.util.ValueInterval;
 
 /**
- * A saturation control component the will limit the minimum and maximum values possible.
+ * A saturation control component the will limit the minimum and maximum values
+ * possible.
  * 
  * @author SBOWMAN
  * 
  * @param <NUMERICTYPE>
- *            The numeric type used for input & output.
+ *            The numeric type used for input and output.
  */
 public class Saturator<NUMERICTYPE extends Number> extends ControlComponent<NUMERICTYPE, SimpleControlComponentArgs<NUMERICTYPE>> implements ISaturator<NUMERICTYPE> {
 
@@ -20,11 +22,9 @@ public class Saturator<NUMERICTYPE extends Number> extends ControlComponent<NUME
 
     /**
      * @param clazz
-     *            The class used for input & output.
-     * @param minimumValue
-     *            The minimum value that the error signal is allowed to be.
-     * @param maximumValue
-     *            The maximum value that the error signal is allowed to be.
+     *            The numeric class, must extend from {@link Number}.
+     * @param interval
+     *            The {@link ValueInterval} object to use.
      */
     public Saturator(final Class<NUMERICTYPE> clazz, final ClosedInterval<NUMERICTYPE> interval) {
         super(clazz);
@@ -43,7 +43,8 @@ public class Saturator<NUMERICTYPE extends Number> extends ControlComponent<NUME
             // above the upper window boundary. return upper limit
             return interval.getUpperValue().doubleValue();
         } else {
-            // if (interval.compare(errorSignal, interval.getLowerValue()) < 0) {
+            // if (interval.compare(errorSignal, interval.getLowerValue()) < 0)
+            // {
             // below the lower window boundary. return lower limit
             return interval.getLowerValue().doubleValue();
         }
@@ -61,7 +62,8 @@ public class Saturator<NUMERICTYPE extends Number> extends ControlComponent<NUME
             // above the upper window boundary. return upper limit
             return interval.getUpperValue().longValue();
         } else {
-            // if (interval.compare(errorSignal, interval.getLowerValue()) < 0) {
+            // if (interval.compare(errorSignal, interval.getLowerValue()) < 0)
+            // {
             // below the lower window boundary. return lower limit
             return interval.getLowerValue().longValue();
         }
